@@ -9,3 +9,9 @@ Fast Fourier Transform and binning by every fourth note from c2 to c5.
   * Numpy  
   * Scipy  
   * Pyaudio  
+  * Argparse
+
+### Running:
+    python VisualNoise [filename] [--hor]
+    filename: The name of the file to play. Defaults to Crystallize.wav
+    --hor:    Displays Visualizer in horizontally instead or vertically  

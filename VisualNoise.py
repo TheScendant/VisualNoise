@@ -10,15 +10,21 @@ import sys,wave,struct,math,os,time
 import numpy as np
 from scipy.fftpack import fft
 import pyaudio
-import AsciiChart
+import VertiiAsciiChart
+import HoriiAsciiChart
+import argparse
 
 def main():
-    try:
-        filename = sys.argv[1]
-    except:
-        print "Include custom song as command line arg if desired."
-        print "Defaulting to Crystallize.wav"
-        filename = "Crystallize.wav"
+    parser = argparse.ArgumentParser()
+    parser.add_argument('filename',nargs='?',type=str,default='Crystallize.wav',help='File to play. Defaults to Crystallize.wav')
+    parser.add_argument('--hor',action='store_true')
+    args = parser.parse_args()
+    filename =args.filename
+    hor = args.hor
+    if hor:
+        chart = HoriiAsciiChart
+    if not hor:
+        chart = VertiiAsciiChart
 
     wf = wave.open(filename, 'rb')
 
@@ -50,7 +56,7 @@ def main():
 
         bars = calcBar(lPower,rPower,cs,fSpace)
         os.system('clear')
-        AsciiChart.printHist(bars)
+        chart.printHist(bars)
         stream.write(data)                              #play
         data = wf.readframes(frameCount)                #next frame
 
