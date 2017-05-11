@@ -10,8 +10,7 @@ import sys,wave,struct,math,os,time
 import numpy as np
 from scipy.fftpack import fft
 import pyaudio
-from ascii_graph import Pyasciigraph
-
+import AsciiChart
 
 def main():
     try:
@@ -38,7 +37,6 @@ def main():
     
     #c2,f2,c3,f3,c4,f4,c5 on piano
     cs = [65.4,87.3,130.8,174.6,261.6,349,523.2]
-
     while data != '':
         array = np.array(struct.unpack("%dh" % (pChannels*frameCount),data)) /pMax   #normalize
 
@@ -51,15 +49,8 @@ def main():
         rPower = [math.sqrt( (x.real **2) + x.imag **2) for x in rightFFT]
 
         bars = calcBar(lPower,rPower,cs,fSpace)
-        if not sum(bars) == 0:
-            bars = [(1,x) for x in bars]
-            os.system('clear')
-            graph = Pyasciigraph()
-            line = graph.graph("TheScendant's VisualNoise",bars)
-            for x in range(len(line)):
-                print (line[x])
-            print "###############################################################################"
-
+        os.system('clear')
+        AsciiChart.printHist(bars)
         stream.write(data)                              #play
         data = wf.readframes(frameCount)                #next frame
 
