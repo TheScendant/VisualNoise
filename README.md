@@ -9,4 +9,3 @@ Fast Fourier Transform and binning by every fourth note from c2 to c5.
   * Numpy  
   * Scipy  
   * Pyaudio  
-  * ascii_graph  
