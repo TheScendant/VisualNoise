@@ -11,7 +11,14 @@ Fast Fourier Transform and binning by every fourth note from c2 to c5.
   * Pyaudio  
   * Argparse
 
+### Setup (As of May 2020):
+  You may need to:
+  ```
+  > sudo apt-get install python3-pyaudio &&
+    pip3 install pyaudio
+  ```
+
 ### Running:
     python VisualNoise [filename] [--hor]
-    filename: The name of the file to play. Defaults to Crystallize.wav
+    filename: The name of the file to play. Defaults to EyesOnFire.wav
     --hor:    Displays Visualizer in horizontally instead or vertically  

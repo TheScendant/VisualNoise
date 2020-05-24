@@ -15,12 +15,12 @@ def printHist(bars):
         out = "\t\t"
         for b in bars:
             if b >  ( (gheight - x) * lineVal) :
-                out += unichr(11035)
-                out += unichr(11035)
+                out += chr(11035)
+                out += chr(11035)
             else:
                 out += "  "
             out += "\t\t"
         graph[x] = out
 
     for line in graph:
-        print line
+        print(line)

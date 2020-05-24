@@ -9,7 +9,7 @@ def printHist(bars):
     gmax = 600
     gWidth = 140
     colVal = gmax / float(gWidth)
-    print "\n"
+    print("\n")
 
 
     for bar in bars:
@@ -19,9 +19,9 @@ def printHist(bars):
                 out+="*"
             else:
                 break
-        print out
-        print out
-        print out
-        print "\n"
+        print(out)
+        print(out)
+        print(out)
+        print("\n")
 
 

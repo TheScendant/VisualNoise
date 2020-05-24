@@ -16,7 +16,7 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('filename',nargs='?',type=str,default='Crystallize.wav',help='File to play. Defaults to Crystallize.wav')
+    parser.add_argument('filename',nargs='?',type=str,default='EyesOnFire.wav',help='File to play. Defaults to EyesOnFire.wav')
     parser.add_argument('--hor',action='store_true')
     args = parser.parse_args()
     filename =args.filename
@@ -77,7 +77,7 @@ def calcBar(lPower,rPower,cs,fSpace):
     bars = [0.0 for x in range(len(cs))]
     sizes = [0 for x in range(len(cs))]
     currBar = 0
-    for x in range(1,(len(lPower) /2)+1):
+    for x in range(1,(len(lPower) // 2)+1):
         if (x*fSpace) < cs[currBar]:
             bars[currBar] +=((lPower[x] + rPower[x])/2.0)
             sizes[currBar] +=1
